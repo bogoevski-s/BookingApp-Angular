@@ -1,0 +1,29 @@
+<h1 mat-dialog-title align="center">Book this resource</h1>
+
+<div mat-dialog-content align="center">
+    <form [formGroup]="bookingForm">
+        <mat-form-field>
+            <mat-label>Date from:</mat-label>
+            <input matInput [matDatepicker]="dateFrom" placeholder="MM/DD/YYYY" formControlName="dateFrom">
+            <mat-datepicker-toggle matIconSuffix [for]="dateFrom"></mat-datepicker-toggle>
+            <mat-datepicker #dateFrom></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Date to:</mat-label>
+            <input matInput [matDatepicker]="dateTo" placeholder="MM/DD/YYYY" formControlName="dateTo">
+            <mat-datepicker-toggle matIconSuffix [for]="dateTo"></mat-datepicker-toggle>
+            <mat-datepicker #dateTo></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" min="1" max="999999" required formControlName="quantity">
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions align="center">
+  <button class="btn" mat-button (click)="bookDialogClose()">Cancel</button>
+  <button class="btn" mat-button (click)="bookResource()">Book</button>
+</div>
